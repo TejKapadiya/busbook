@@ -1,0 +1,33 @@
+{
+  "author": "Tej Kapadiya",
+  "name": "book_bus",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "license": "ISC",
+  "dependencies": {
+    "@stripe/stripe-js": "^1.35.0",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.5.4",
+    "nodemailer": "^6.7.8",
+    "nodemon": "^2.0.19",
+    "stripe": "^10.8.0",
+    "uuid": "^9.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": "15.7.0",
+    "npm": "7.4.3"
+  }
+}

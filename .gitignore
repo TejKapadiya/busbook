@@ -1,0 +1,8 @@
+
+backend/.env
+backend/.prettierrc.yaml
+/backend/node_modules
+/frontend/node_modules
+backend/package-lock.json
+backend/pnpm-lock.yaml
+frontend/package-lock.json
