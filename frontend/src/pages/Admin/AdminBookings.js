@@ -134,7 +134,8 @@ function Bookings() {
             <hr />
             <p>
               <span>Seat Numbers:</span> <br />
-              {selectedBooking.seats}
+              {selectedBooking.seats.join(", ")}
+
             </p>
             <hr />
             <p>
