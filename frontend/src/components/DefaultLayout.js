@@ -51,6 +51,7 @@ function DefaultLayout({ children }) {
     },
   ];
   const menuToBeRendered = user?.isAdmin ? adminMenu : userMenu;
+  //usermenu or bus
   let activeRoute = window.location.pathname;
   if (window.location.pathname.includes("book-now")) {
     activeRoute = "/";
@@ -64,7 +65,7 @@ function DefaultLayout({ children }) {
           <h1 className="role">
             Logged in as : {user?.name}
             <br />
-            Role : {user?.isAdmin ? "Admin" : "User"}
+            Role: { user?.isAdmin ? "Admin" : user?.isBusman ? "Manager" : "User" }
           </h1>
         </div>
         <div className="d-flex flex-column gap-3 justify-content-start menu">

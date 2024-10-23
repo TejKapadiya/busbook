@@ -52,6 +52,16 @@ function AdminUsers() {
           ...user,
           isBlocked: false,
         };
+      } else if (action === "make-manager") {
+        payload = {
+          ...user,
+          isBusman: true,
+        };
+      } else if (action === "remove-manager") {
+        payload = {
+          ...user,
+          isBusman: false,
+        };
       }
 
       dispatch(ShowLoading());
@@ -95,11 +105,17 @@ function AdminUsers() {
         // console.log(data);
         if (data?.isAdmin) {
           return "Admin";
-        } else {
-          return "User";
+        } 
+        else{if(data?.isBusman) {
+            return "Manager";
+          }
+          else {
+              return "User";
+            }
+        }
         }
       },
-    },
+    
     {
       title: "Action",
       dataIndex: "action",
@@ -135,6 +151,22 @@ function AdminUsers() {
               onClick={() => updateUserPermissions(record, "make-admin")}
             >
               Make Admin
+            </p>
+          )}
+          {record?.isBusman && (
+            <p
+              className="underline"
+              onClick={() => updateUserPermissions(record, "remove-manager")}
+            >
+              Remove manager
+            </p>
+          )}
+          {!record?.isBusman && (
+            <p
+              className="underline"
+              onClick={() => updateUserPermissions(record, "make-manager")}
+            >
+              Make manager
             </p>
           )}
         </div>
